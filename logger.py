@@ -1,13 +1,13 @@
 import pandas as pd
 import numpy as np
 
-class CPALSLogger(object):
+class CPdecompLogger(object):
     """
     Ex.
-        cpalslogger = CPALSLogger(columns = ["step", "obj_val"])
+        cpdecomplogger = CPdecompLogger(columns = ["step", "obj_val"])
         new_row = [1,2]
-        cpalslogger.append(new_row)
-        cpalslogger.df
+        cpdecomplogger.append(new_row)
+        cpdecomplogger.df
                step  obj_val
             0   1.0      2.0
     """

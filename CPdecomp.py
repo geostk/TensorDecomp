@@ -7,13 +7,13 @@ import tensor_operator as to
 import logger
 import dataloader as dl
 
-class CPALS(object):
+class CPdecomp(object):
     def __init__(self, dim_list, rank):
         self.dim_list = dim_list
         self.rank = rank
         self.N = len(self.dim_list)
         self.fmats = self._make_init_factor_matrices(self.rank)
-        self.logger = logger.CPALSLogger(columns = ["step", "obj_val"])
+        self.logger = logger.CPdecompLogger(columns = ["step", "obj_val"])
 
     def fit(self, X, iter_num=100):
         # add obj_val of random factor matrices.
@@ -109,8 +109,8 @@ if __name__ == '__main__':
     dim_list = np.array([3,2,4])
     X = dl.make_toy_tensor3(dim_list)
     rank = 10
-    model = CPALS(dim_list, rank)
-    model = model.fit(X, iter_num=100)
+    model = CPdecomp(dim_list, rank)
+    model = model.fit(X, iter_num=10)
     print(model.logger.df)
 
 
